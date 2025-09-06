@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home - Refugee Rights Watch Global</title>
+<meta name="description" content="Global VoicesGlobal RightsGlobal Responsibility Upholding the rights of refugees and women -- with dignity, justice, and unwavering solidarity.">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Cormorant:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #E7F6FF 0%, #ffffff 100%); overflow-x: hidden; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* Header Animations */
+header { background: rgba(231, 246, 255, 0.95); padding: 20px 0; backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; transition: all 0.3s ease; }
+header.scrolled { background: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 20px rgba(0, 103, 255, 0.1); }
+.logo { max-width: 120px; animation: logoFloat 3s ease-in-out infinite; }
+@keyframes logoFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
+
+nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+nav a { text-decoration: none; color: #364151; font-weight: 500; transition: all 0.3s ease; position: relative; }
+nav a:hover { color: #0067FF; transform: translateY(-2px); }
+nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: #0067FF; transition: width 0.3s ease; }
+nav a:hover::after { width: 100%; }
+
+/* Hero Section */
+.hero { text-align: center; padding: 120px 0 80px; background: linear-gradient(135deg, #E7F6FF 0%, #ffffff 50%, #E7F6FF 100%); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 103, 255, 0.05) 0%, transparent 70%); animation: rotate 20s linear infinite; }
+@keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.hero-content { position: relative; z-index: 2; }
+.hero h1 { font-family: 'Cormorant', serif; font-size: 70px; color: #0F172A; margin-bottom: 30px; font-weight: 600; line-height: 1.2; animation: fadeInUp 1s ease-out; }
+.hero p { font-size: 18px; color: #364151; max-width: 600px; margin: 0 auto 40px; line-height: 1.6; animation: fadeInUp 1s ease-out 0.3s both; }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Button Animations */
+.btn { background: linear-gradient(135deg, #0067FF, #005EE9); color: white; padding: 20px 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 13px; font-weight: 600; border-radius: 50px; transition: all 0.3s ease; position: relative; overflow: hidden; animation: fadeInUp 1s ease-out 0.6s both; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 103, 255, 0.3); }
+.btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s; }
+.btn:hover::before { left: 100%; }
+
+/* Social Icons */
+.social-icons { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+.social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: linear-gradient(135deg, #0067FF, #005EE9); color: white; border-radius: 50%; text-decoration: none; font-size: 20px; transition: all 0.3s ease; position: relative; overflow: hidden; }
+.social-icons a:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 10px 25px rgba(0, 103, 255, 0.4); }
+.social-icons a.facebook:hover { background: linear-gradient(135deg, #1877f2, #0d5dbf); }
+.social-icons a.instagram:hover { background: linear-gradient(135deg, #e4405f, #833ab4, #fccc63); }
+.social-icons a.whatsapp:hover { background: linear-gradient(135deg, #25d366, #128c7e); }
+.social-icons a::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s; }
+.social-icons a:hover::before { left: 100%; }
+
+/* Footer */
+footer { background: linear-gradient(135deg, #005EE9, #0067FF); color: white; padding: 60px 0 20px; position: relative; overflow: hidden; }
+footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); }
+.footer-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 40px; }
+.footer-content h5 { margin-bottom: 20px; font-size: 18px; font-weight: 600; }
+.footer-content ul li { margin-bottom: 8px; opacity: 0.9; transition: opacity 0.3s ease; }
+.footer-content ul li:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 45px; }
+  nav ul { flex-direction: column; gap: 15px; }
+  .footer-content { grid-template-columns: 1fr; text-align: center; }
+  .social-icons a { width: 45px; height: 45px; font-size: 18px; }
+}
+
+/* Scroll Animations */
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+<header id="header">
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/what-we-do">What We Do</a></li>
+        <li><a href="/news">News</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Global Voices<br>Global Rights<br>Global Responsibility</h1>
+        <p>Upholding the rights of refugees and women — with dignity, justice, and unwavering solidarity.</p>
+        <a href="#" class="btn">Donate Now</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div>
+        <h5>Follow Us</h5>
+        <div class="social-icons">
+          <a href="#" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>What We Do</h5>
+        <ul style="list-style:none;padding:0;">
+          <li>Advancing women's human rights</li>
+          <li>Healthcare, rehabilitation & awareness</li>
+          <li>Building feminist leadership</li>
+          <li>Expanding reproductive freedoms</li>
+          <li>Education programmes</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Subscribe</h5>
+        <p>Stay updated with our latest news</p>
+      </div>
+    </div>
+    <p>Copyright © 2025 Refugee Rights Watch Global</p>
+  </div>
+</footer>
+
+<script>
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// Fade in animation on scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => {
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
